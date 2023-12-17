@@ -1,0 +1,31 @@
+schema {
+	query: Query
+}
+
+type Page {
+	page_id: Int!
+	owner_id: Int!
+	tag: String!
+	title: String!
+	description: String!
+	keywords: String!
+	body: String!
+	files: [Int]
+}
+
+type PagesResult {
+	success: Boolean!
+	errors: [String]
+	pages: [Page]
+}
+
+type PageResult {
+	success: Boolean!
+	errors: [String]
+	page: Page
+}
+
+type Query {
+	getPages: PagesResult!
+	getPage(page_id: Int!): PageResult!
+}
